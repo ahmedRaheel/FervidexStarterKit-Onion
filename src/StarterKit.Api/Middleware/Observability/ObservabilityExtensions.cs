@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 using OpenTelemetry.Metrics;
 using OpenTelemetry.Resources;
 using OpenTelemetry.Trace;
-using StarterKit.Api.BuildingBlocks.Infrastructure.Persistence.Context;
+using StarterKit.Infrastructure.Data.Persistence.Context;
 using StarterKit.Api.Middleware.Observability.HealthChecks;
 using StarterKit.Api.Middleware.Observability.Metrics;
 using StarterKit.Api.Middleware.Observability.OpenTelemetry;

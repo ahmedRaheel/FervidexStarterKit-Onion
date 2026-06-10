@@ -1,6 +1,6 @@
 using Asp.Versioning;
+using Microsoft.AspNetCore.RateLimiting;
 using Serilog;
-using StarterKit.Api.Extensions;
 using StarterKit.Api.Middleware;
 using StarterKit.Api.Middleware.Observability;
 using StarterKit.Api.Swagger;
@@ -60,8 +60,6 @@ app.UseAuthorization();
 app.UseRateLimiter();
 app.UseOutputCache();
 app.MapStarterKitObservability();
-app.MapApiEndpoints();
-
 app.Run();
 
 public partial class Program { }

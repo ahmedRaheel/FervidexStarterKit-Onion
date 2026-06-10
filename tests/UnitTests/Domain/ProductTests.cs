@@ -1,5 +1,5 @@
 using FluentAssertions;
-using StarterKit.Api.BuildingBlocks.Domain.Entities;
+using StarterKit.Domain.Entities;
 using Xunit;
 namespace UnitTests.Domain;
 public sealed class ProductTests 

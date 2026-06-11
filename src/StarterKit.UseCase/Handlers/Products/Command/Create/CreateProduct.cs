@@ -6,7 +6,7 @@ using StarterKit.Domain.Interfaces.Commands;
 using StarterKit.Domain.Shared.Results;
 using StarterKit.UseCase.Abstractions;
 
-namespace StarterKit.UseCase.Handlers.Products.Create;
+namespace StarterKit.UseCase.Handlers.Products.Command.Create;
 
 public sealed record CreateProductCommand(string Name, decimal Price, string Sku) : IRequest<Result<ProductResponse>>;
 

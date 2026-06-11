@@ -2,7 +2,7 @@ using FluentAssertions;
 using StarterKit.Domain.Entities;
 using StarterKit.Infrastructure.Data.Persistence.Context;
 using StarterKit.Infrastructure.External.Caching.Redis;
-using StarterKit.UseCase.Handlers.Products.Create;
+using StarterKit.UseCase.Handlers.Products.Command.Create;
 using Xunit;
 
 namespace ArchitectureTests.LayerTests;

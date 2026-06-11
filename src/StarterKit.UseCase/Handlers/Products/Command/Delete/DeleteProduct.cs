@@ -4,7 +4,7 @@ using StarterKit.Domain.Interfaces.Queries;
 using StarterKit.Domain.Shared.Results;
 using StarterKit.UseCase.Abstractions;
 
-namespace StarterKit.UseCase.Handlers.Products.Delete;
+namespace StarterKit.UseCase.Handlers.Products.Command.Delete;
 
 public sealed record DeleteProductCommand(Guid Id) : IRequest<Result<Unit>>;
 

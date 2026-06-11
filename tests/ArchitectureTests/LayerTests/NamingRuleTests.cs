@@ -1,7 +1,7 @@
 using FluentAssertions;
 using FluentValidation;
 using MediatR;
-using StarterKit.UseCase.Handlers.Products.Create;
+using StarterKit.UseCase.Handlers.Products.Command.Create;
 using Xunit;
 
 namespace ArchitectureTests.LayerTests;

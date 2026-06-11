@@ -6,7 +6,7 @@ using StarterKit.Domain.Shared.Pagination;
 using StarterKit.Domain.Shared.Results;
 using StarterKit.UseCase.Abstractions;
 
-namespace StarterKit.UseCase.Handlers.Products.GetPaged;
+namespace StarterKit.UseCase.Handlers.Products.Query.GetPaged;
 
 public sealed record GetPagedProductsQuery(int PageNumber, int PageSize) : IRequest<Result<PagedResult<ProductResponse>>>;
 

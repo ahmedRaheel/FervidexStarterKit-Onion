@@ -5,7 +5,7 @@ using StarterKit.Domain.Interfaces.Queries;
 using StarterKit.Domain.Shared.Results;
 using StarterKit.UseCase.Abstractions;
 
-namespace StarterKit.UseCase.Handlers.Products.GetById;
+namespace StarterKit.UseCase.Handlers.Products.Query.GetById;
 
 public sealed record GetProductByIdQuery(Guid Id) : IRequest<Result<ProductResponse?>>;
 

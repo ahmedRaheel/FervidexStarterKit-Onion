@@ -6,7 +6,7 @@ using StarterKit.Domain.Interfaces.Queries;
 using StarterKit.Domain.Shared.Results;
 using StarterKit.UseCase.Abstractions;
 
-namespace StarterKit.UseCase.Handlers.Products.Update;
+namespace StarterKit.UseCase.Handlers.Products.Command.Update;
 
 public sealed record UpdateProductCommand(Guid Id, string Name, decimal Price, string Sku) : IRequest<Result<ProductResponse>>;
 

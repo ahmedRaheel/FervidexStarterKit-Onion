@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using StarterKit.Domain.Constants;
 using StarterKit.Domain.DTO.API;
-using StarterKit.UseCase.Handlers.Products.Create;
-using StarterKit.UseCase.Handlers.Products.Delete;
-using StarterKit.UseCase.Handlers.Products.GetById;
-using StarterKit.UseCase.Handlers.Products.GetPaged;
-using StarterKit.UseCase.Handlers.Products.Update;
+using StarterKit.UseCase.Handlers.Products.Command.Create;
+using StarterKit.UseCase.Handlers.Products.Command.Delete;
+using StarterKit.UseCase.Handlers.Products.Query.GetById;
+using StarterKit.UseCase.Handlers.Products.Query.GetPaged;
+using StarterKit.UseCase.Handlers.Products.Command.Update;
 
 [Route("api/[controller]")]
 [ApiController]

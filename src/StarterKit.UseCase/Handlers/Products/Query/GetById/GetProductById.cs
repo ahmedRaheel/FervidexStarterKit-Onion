@@ -11,7 +11,7 @@ public sealed record GetProductByIdQuery(Guid Id) : IRequest<Result<ProductRespo
 
 public sealed class GetProductByIdHandler(IProductQuery productQuery) : IRequestHandler<GetProductByIdQuery, Result<ProductResponse?>>
 {
-    public async Task<Result<ProductResponse>> Handle(GetProductByIdQuery query, CancellationToken ct)
+    public async Task<Result<ProductResponse?>> Handle(GetProductByIdQuery query, CancellationToken ct)
     {
         var product = await productQuery.GetProductByIdAsync(query.Id, ct);
 
@@ -20,6 +20,6 @@ public sealed class GetProductByIdHandler(IProductQuery productQuery) : IRequest
             return Errors.NotFound($"Product with ID {query.Id} was not found.");
         }
 
-        return Result<ProductResponse>.Success(product, "Product retrieved successfully.");
+        return Result<ProductResponse?>.Success(product, "Product retrieved successfully.");
     }
 }

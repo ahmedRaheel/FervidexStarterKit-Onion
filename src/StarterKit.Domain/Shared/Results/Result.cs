@@ -2,8 +2,9 @@ using StarterKit.Domain.Constants;
 
 namespace StarterKit.Domain.Shared.Results;
 
+public interface IResult { bool IsFailure { get; } Error Error { get; } }
 public record Error(string Code, string Message);
-public class Result<T>
+public class Result<T> : IResult {
 {
     public T? Value { get; }
     public bool IsSuccess { get; }

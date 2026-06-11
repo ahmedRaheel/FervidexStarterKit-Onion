@@ -1,5 +1,6 @@
 using MediatR;
 using Microsoft.Extensions.Logging;
+using StarterKit.Domain.Shared.Results;
 namespace StarterKit.UseCase.Abstractions.Behaviors;
 public sealed class LoggingBehavior<TRequest,TResponse>(ILogger<LoggingBehavior<TRequest,TResponse>> logger) : IPipelineBehavior<TRequest,TResponse> 
 {
@@ -10,10 +11,9 @@ public sealed class LoggingBehavior<TRequest,TResponse>(ILogger<LoggingBehavior<
         var response = await next();
 
         // Check if the response is of type Result<T> using reflection or pattern matching
-        if (response is { } res && IsFailure(res))
+        if (response is IResult { IsFailure: true } result)
         {
-            logger.LogError("Request {RequestName} failed: {Error}",
-                typeof(TRequest).Name, GetErrorMessage(res));
+            logger.LogError("Request {RequestName} failed: {Error}", typeof(TRequest).Name, result.Error.Message);
         }
         else
         {
@@ -21,21 +21,5 @@ public sealed class LoggingBehavior<TRequest,TResponse>(ILogger<LoggingBehavior<
         }
 
         return response;
-    }
-
-    // Helper to extract failure status from your generic Result<T>
-    private static bool IsFailure(object response)
-    {
-        var property = response.GetType().GetProperty("IsFailure");
-        return property != null && (bool)property.GetValue(response)!;
-    }
-
-    // Helper to extract the error message
-    private static string GetErrorMessage(object response)
-    {
-        var errorProp = response.GetType().GetProperty("Error");
-        var error = errorProp?.GetValue(response);
-        var msgProp = error?.GetType().GetProperty("Message");
-        return msgProp?.GetValue(error)?.ToString() ?? "Unknown error";
-    }
+    }    
 }

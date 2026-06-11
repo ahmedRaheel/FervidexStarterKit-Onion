@@ -5,11 +5,11 @@ using StarterKit.Domain.DTO;
 using StarterKit.Domain.Entities;
 using StarterKit.Domain.Interfaces.Commands;
 using StarterKit.Domain.Interfaces.Queries;
-using StarterKit.UseCase.Handlers.Products.Create;
-using StarterKit.UseCase.Handlers.Products.Delete;
-using StarterKit.UseCase.Handlers.Products.GetById;
-using StarterKit.UseCase.Handlers.Products.GetPaged;
-using StarterKit.UseCase.Handlers.Products.Update;
+using StarterKit.UseCase.Handlers.Products.Command.Create;
+using StarterKit.UseCase.Handlers.Products.Command.Delete;
+using StarterKit.UseCase.Handlers.Products.Command.Update;
+using StarterKit.UseCase.Handlers.Products.Query.GetById;
+using StarterKit.UseCase.Handlers.Products.Query.GetPaged;
 using Xunit;
 
 namespace UnitTests.Features;

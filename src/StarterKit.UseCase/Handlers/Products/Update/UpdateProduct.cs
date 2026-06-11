@@ -20,7 +20,7 @@ public sealed class UpdateProductValidator : AbstractValidator<UpdateProductComm
     }
 }
 
-public sealed class UpdateProductHandler(IProductCommands productCommands, IProductQuery productQuery) : IRequestHandler<UpdateProductCommand, Result<ProductResponse>>
+public sealed class UpdateProductHandler(IProductCommand productCommands, IProductQuery productQuery) : IRequestHandler<UpdateProductCommand, Result<ProductResponse>>
 {
     public async Task<Result<ProductResponse>> Handle(UpdateProductCommand command, CancellationToken ct)
     {

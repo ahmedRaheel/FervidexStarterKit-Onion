@@ -8,7 +8,7 @@ namespace StarterKit.UseCase.Handlers.Products.Delete;
 
 public sealed record DeleteProductCommand(Guid Id) : IRequest<Result<Unit>>;
 
-public sealed class DeleteProductHandler(IProductCommands productCommands, IProductQuery productQuery) : IRequestHandler<DeleteProductCommand, Result<Unit>>
+public sealed class DeleteProductHandler(IProductCommand productCommands, IProductQuery productQuery) : IRequestHandler<DeleteProductCommand, Result<Unit>>
 {
     public async Task<Result<Unit>> Handle(DeleteProductCommand command, CancellationToken ct)
     {

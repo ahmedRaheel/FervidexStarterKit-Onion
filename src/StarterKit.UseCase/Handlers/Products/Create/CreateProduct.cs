@@ -20,7 +20,7 @@ public sealed class CreateProductValidator : AbstractValidator<CreateProductComm
     }
 }
 
-public sealed class CreateProductHandler(IProductCommands productCommands) : IRequestHandler<CreateProductCommand, Result<ProductResponse>>
+public sealed class CreateProductHandler(IProductCommand productCommands) : IRequestHandler<CreateProductCommand, Result<ProductResponse>>
 {
     public async Task<Result<ProductResponse>> Handle(CreateProductCommand command, CancellationToken cancellationToken)
     {

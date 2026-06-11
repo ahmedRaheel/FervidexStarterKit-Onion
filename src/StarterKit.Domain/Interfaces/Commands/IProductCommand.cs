@@ -10,7 +10,7 @@ namespace StarterKit.Domain.Interfaces.Commands;
 /// Defines the contract for product-related command operations,
 /// including adding, updating, and deleting products in the system.
 /// </summary>
-public interface IProductCommands
+public interface IProductCommand
 {
     /// <summary>
     /// Adds a new product to the system based on the provided CreateProductRequest.

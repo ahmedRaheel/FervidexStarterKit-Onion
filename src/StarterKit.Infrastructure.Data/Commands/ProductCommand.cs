@@ -8,7 +8,7 @@ using System.Text;
 
 namespace StarterKit.Infrastructure.Data.Commands;
 
-public sealed class ProductCommand (IApplicationDbContext dbContext): IProductCommands
+public sealed class ProductCommand (IApplicationDbContext dbContext): IProductCommand
 {
     // Implement the methods defined in IProductCommands interface
     public async Task AddAsync(Product request, CancellationToken cancellationToken = default)

@@ -4,6 +4,7 @@ using StarterKit.Domain.DTO.API;
 using StarterKit.UseCase.Handlers.Products.Create;
 using StarterKit.UseCase.Handlers.Products.Delete;
 using StarterKit.UseCase.Handlers.Products.GetById;
+using StarterKit.UseCase.Handlers.Products.GetPaged;
 using StarterKit.UseCase.Handlers.Products.Update;
 
 [Route("api/[controller]")]
@@ -62,6 +63,19 @@ public class ProductController : ControllerBase
         {
             { IsSuccess: true } => NoContent(),
             { Error: { Code: ErrorCodes.NotFound } } => NotFound(result.Error.Message),
+            _ => BadRequest(result.Error?.Message)
+        };
+    }
+
+    [HttpGet]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public async Task<IActionResult> GetProducts([FromQuery] int pageNumber, [FromQuery] int pageSize, CancellationToken ct)
+    {
+        var result = await _sender.Send(new GetPagedProductsQuery(pageNumber, pageSize), ct);
+
+        return result switch
+        {
+            { IsSuccess: true } => Ok(result.Value),
             _ => BadRequest(result.Error?.Message)
         };
     }

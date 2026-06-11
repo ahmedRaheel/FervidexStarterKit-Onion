@@ -28,4 +28,4 @@ public sealed class UpdateProductHandler(IProductCommands productCommands, IProd
         product.Update(command.Name, command.Price, command.Sku);
         await productCommands.UpdateAsync(command.Id, product, cancellationToken);
     }
-.
+}

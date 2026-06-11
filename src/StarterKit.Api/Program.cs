@@ -52,6 +52,7 @@ if (builder.Configuration.GetValue("SeedData:Enabled", true))
 }
 
 app.UseMiddleware<GlobalExceptionMiddleware>();
+app.UseMiddleware<CorrelationIdMiddleware>();
 app.UseSerilogRequestLogging();
 app.UseSwaggerDocumentation();
 app.UseHttpsRedirection();

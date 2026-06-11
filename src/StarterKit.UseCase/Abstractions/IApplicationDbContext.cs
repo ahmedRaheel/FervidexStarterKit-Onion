@@ -1,3 +1,4 @@
+using Microsoft.EntityFrameworkCore;
 using StarterKit.Domain.Entities;
 
 namespace StarterKit.UseCase.Abstractions;

@@ -1,3 +1,7 @@
+using FluentValidation;
+using MediatR;
+using StarterKit.Domain.Interfaces.Commands;
+using StarterKit.Domain.Interfaces.Queries;
 using StarterKit.UseCase.Abstractions;
 
 namespace StarterKit.UseCase.Handlers.Products.Update;
@@ -14,14 +18,14 @@ public sealed class UpdateProductValidator : AbstractValidator<UpdateProductComm
     }
 }
 
-public sealed class UpdateProductHandler(IApplicationDbContext db) : IRequestHandler<UpdateProductCommand>
+public sealed class UpdateProductHandler(IProductCommands productCommands, IProductQuery productQuery) : IRequestHandler<UpdateProductCommand>
 {
     public async Task Handle(UpdateProductCommand command, CancellationToken cancellationToken)
     {
-        var product = await db.Products.SingleOrDefaultAsync(x => x.Id == command.Id, cancellationToken)
+        var product = await productQuery.GetAsync(command.Id, cancellationToken)
                       ?? throw new KeyNotFoundException("Product not found");
 
         product.Update(command.Name, command.Price, command.Sku);
-        await db.SaveChangesAsync(cancellationToken);
+        await productCommands.UpdateAsync(command.Id, product, cancellationToken);
     }
-}
+.
